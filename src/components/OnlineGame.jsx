@@ -90,7 +90,7 @@ function OnlineGame(props) {
             </div>
 
             <h2 style={{ color: isXPlaying ? "#2ec5c0" : "#f1b238" }} className={"next-player"}>{isXPlaying ? "X" : "O"}'s Turn</h2>
-            <p className="socket name"> You are {state.player}</p>
+            <p className="socket-name"> You are {state.player}</p>
 
             <div className="board">
                 <Board click={click} currBoard={currBoard} isDisabled = {popup[1]} />
