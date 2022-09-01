@@ -3,7 +3,7 @@
 
 function Square(props) {
     return (
-        <button onClick={(e) => {
+        <button disabled={props.isDisabled} onClick={(e) => {
             props.click(props.row, props.col);
         }} className={"square " + props.value}>{props.value}</button>
     )

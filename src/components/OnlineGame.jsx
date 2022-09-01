@@ -21,8 +21,8 @@ function OnlineGame(props) {
     let [currBoard, setCurrBaord] = useState(startingBoard);
     let [isXPlaying, setisXPLaying] = useState(true);
     // eslint-disable-next-line 
-    let [gameStatus, setGameStatus] = useState(["", false]);
-    let [popup, setPopup] = useState(false)
+    let [gameStatus, setGameStatus] = useState("");
+    let [popup, setPopup] = useState(["", false])
 
 
     let currStatus = ticTacToeGameStatus(currBoard)
@@ -93,7 +93,7 @@ function OnlineGame(props) {
             <p className="socket name"> You are {state.player}</p>
 
             <div className="board">
-                <Board click={click} currBoard={currBoard} />
+                <Board click={click} currBoard={currBoard} isDisabled = {popup[1]} />
             </div>
 
 
