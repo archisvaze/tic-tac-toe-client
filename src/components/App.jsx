@@ -3,7 +3,6 @@ import Game from "./Game";
 import Header from "./Header";
 import Home from "./Home";
 import OnlineGame from "./OnlineGame";
-import PageNotFound from "./PageNotFound";
 
 function App(props) {
 
