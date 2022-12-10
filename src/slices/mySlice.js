@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 let initialState = {};
-initialState = { roomId: "", clientId: "", waiting: true, player: "", name: "", opponentName: "" };
+initialState = { roomId: "", clientId: "", waiting: true, player: "", name: "", opponentName: "", alert: ["", false, "error"], };
 
 const mySlice = createSlice({
     name: "mySlice",
@@ -17,10 +17,13 @@ const mySlice = createSlice({
         },
         setPlayer: (state, action) => {
             state.player = action.payload
-        }
+        },
+        setAlert: (state, action) => {
+            state.alert = action.payload;
+        },
     }
 })
 
 
-export const { setclientId, setroomId, setwaiting, setPlayer } = mySlice.actions;
+export const { setclientId, setroomId, setwaiting, setPlayer, setAlert } = mySlice.actions;
 export default mySlice.reducer;

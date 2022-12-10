@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import { useNavigate } from "react-router-dom";
-import { setclientId, setPlayer, setroomId } from '../slices/mySlice';
+import { setclientId, setPlayer, setroomId, setAlert } from '../slices/mySlice';
 import { useSelector } from 'react-redux/es/exports';
 import socket from '../socketConfig';
 
@@ -12,20 +12,36 @@ export default function Home() {
   const state = useSelector(state => state.myState);
 
 
+  //function to show alerts
+  function alert(text, flag) {
+    dispatch(setAlert([text, true, flag]))
+    setTimeout(() => {
+      dispatch(setAlert([text, false, flag]))
+    }, 2000)
+  }
 
 
   useEffect(() => {
+
+    dispatch(setAlert(["Connecting to Server please wait...", true, "error"]))
+    if (state.clientId !== "") {
+      dispatch(setAlert(["Connected", false, "alert"]));
+    }
+
     socket.on("react-connection", (data) => {
-      dispatch(setclientId(data))
+      dispatch(setclientId(data));
+      dispatch(setAlert(["Connected", false, "alert"]))
     })
     socket.on("room-joined", data => {
       console.log("Room Joined: " + data.room)
-      dispatch(setPlayer(data.player))
+      dispatch(setPlayer(data.player));
+      dispatch(setAlert(["Connected", false, "alert"]));
       navigate(`/${data.room}`)
     })
     socket.on("room-created", data => {
       console.log("Room Created: " + data.room)
-      dispatch(setPlayer(data.player))
+      dispatch(setPlayer(data.player));
+      dispatch(setAlert(["Connected", false, "alert"]));
       navigate(`/${data.room}`)
     })
     // eslint-disable-next-line 

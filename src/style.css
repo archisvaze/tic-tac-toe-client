@@ -46,6 +46,25 @@ button {
     letter-spacing: 1px;
 }
 
+.alert {
+    position: fixed;
+    height: 60px;
+    width: 300px;
+    color: white;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transition: 0.5s;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 4px 10px 15px 4px rgba(0, 0, 0, 0.3);
+}
+
 /*GAME*/
 .game {
     padding-top: 100px;
@@ -258,7 +277,7 @@ input {
 
 /*Onliine Game Footer*/
 
-.footer{
+.footer {
     text-align: center;
     margin-top: 30px;
     display: flex;
@@ -288,17 +307,17 @@ input {
     transform: translateY(4px);
 }
 
-.invite-text{
+.invite-text {
     font-size: 14px;
     color: rgba(255, 255, 255, 0.5);
 }
 
-.socket-id{
+.socket-id {
     color: rgba(255, 255, 255, 0.8);
     margin-top: 10px;
 }
 
-.socket-name{
+.socket-name {
     font-size: 20px;
     margin-bottom: 5px;
     color: rgba(255, 255, 255, 0.8);
