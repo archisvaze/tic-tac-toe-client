@@ -1,5 +1,5 @@
 import io from 'socket.io-client';
 
-const socket = io("https://tic-tac-toe-archis.herokuapp.com/")
+const socket = io("https://tic-tac-toe-server.onrender.com/")
 
 export default socket;
