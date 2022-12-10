@@ -12,15 +12,6 @@ export default function Home() {
   const state = useSelector(state => state.myState);
 
 
-  //function to show alerts
-  function alert(text, flag) {
-    dispatch(setAlert([text, true, flag]))
-    setTimeout(() => {
-      dispatch(setAlert([text, false, flag]))
-    }, 2000)
-  }
-
-
   useEffect(() => {
 
     dispatch(setAlert(["Connecting to Server please wait...", true, "error"]))
